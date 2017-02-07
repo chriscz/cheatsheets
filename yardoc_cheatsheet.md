@@ -2,6 +2,9 @@
 
 forked from https://gist.github.com/chetan/1827484 which is from early 2012.
 
+* [Official Getting Started Guide](http://www.rubydoc.info/gems/yard/file/docs/GettingStarted.md)
+* [Official Tags documentation](http://www.rubydoc.info/gems/yard/file/docs/Tags.md#Tag_List)
+
 Templates to remind you of the options and formatting for the different types of objects you might
 want to document using YARD.
 
