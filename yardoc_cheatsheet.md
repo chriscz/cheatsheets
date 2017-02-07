@@ -1,6 +1,6 @@
-# YARD CHEATSHEET http://yardoc.org
+# Improved YARD CHEATSHEET http://yardoc.org
 
-cribbed from http://pastebin.com/xgzeAmBn
+forked from https://gist.github.com/chetan/1827484 which is from early 2012.
 
 Templates to remind you of the options and formatting for the different types of objects you might
 want to document using YARD.
