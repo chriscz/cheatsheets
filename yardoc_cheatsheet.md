@@ -41,7 +41,9 @@ want to document using YARD.
     #
     # @abstract
     # @private
-    #
+
+### Method parameters
+
     # @param [Hash] opts the options to create a message with.
     # @option opts [String] :subject The subject
     # @option opts [String] :from ('nobody') From address
@@ -57,15 +59,21 @@ want to document using YARD.
     # The options parsed out of the commandline.
     # Default options are:
     #   :format => :dot
-    #
+    
+### Examples
+
     # @example Reverse a string
     #   "mystring.reverse" #=> "gnirtsym"
     #
     # @example Parse a glob of files
     #   YARD.parse('lib/**/*.rb')
-    #  
+
+### Exceptions
+
     # @raise [ExceptionClass] description
-    #
+
+### Return values
+
     # @return [optional, types, ...] description
     # @return [true] always returns true
     # @return [void]
