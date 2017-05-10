@@ -8,24 +8,6 @@ forked from https://gist.github.com/chetan/1827484 which is from early 2012.
 Templates to remind you of the options and formatting for the different types of objects you might
 want to document using YARD.
 
-## Modules
-
-    # Namespace for classes and modules that handle serving documentation over HTTP
-    # @since 0.6.0
-
-## Classes
-
-    # Abstract base class for CLI utilities. Provides some helper methods for
-    # the option parser
-    # 
-    # @author Full Name
-    # @abstract
-    # @since 0.6.0
-    # @attr [Types] attribute_name a full description of the attribute
-    # @attr_reader [Types] name description of a readonly attribute
-    # @attr_writer [Types] name description of writeonly attribute
-    # @deprecated Describe the reason or provide alt. references here
-
 ## Methods
 
     # An alias to {Parser::SourceParser}'s parsing method
@@ -67,6 +49,23 @@ want to document using YARD.
     #
     # @example Parse a glob of files
     #   YARD.parse('lib/**/*.rb')
+## Modules
+
+    # Namespace for classes and modules that handle serving documentation over HTTP
+    # @since 0.6.0
+
+## Classes
+
+    # Abstract base class for CLI utilities. Provides some helper methods for
+    # the option parser
+    # 
+    # @author Full Name
+    # @abstract
+    # @since 0.6.0
+    # @attr [Types] attribute_name a full description of the attribute
+    # @attr_reader [Types] name description of a readonly attribute
+    # @attr_writer [Types] name description of writeonly attribute
+    # @deprecated Describe the reason or provide alt. references here
 
 ### Exceptions
 
