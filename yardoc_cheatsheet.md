@@ -8,6 +8,14 @@ forked from https://gist.github.com/chetan/1827484 which is from early 2012.
 Templates to remind you of the options and formatting for the different types of objects you might
 want to document using YARD.
 
+## Linking Objects {...}
+
+To link another "object" (class, method, module, etc.), use the format:
+
+    {ObjectName#method OPTIONAL_TITLE}
+    {Class::CONSTANT My constant's title}
+    {#method_inside_current_namespace}
+
 ## Methods
 
     # An alias to {Parser::SourceParser}'s parsing method
