@@ -45,6 +45,7 @@ To link another "object" (class, method, module, etc.), use the format:
     # @param [Array<String>] args the arguments passed from input. This
     #   array will be modified.
     # @param [Array<String, Symbol>] list the list of strings and symbols.
+    # @param [Hash<Symbol, String>] a hash with symbol keys and string values
     #
     # The options parsed out of the commandline.
     # Default options are:
@@ -70,10 +71,15 @@ To link another "object" (class, method, module, etc.), use the format:
     # @author Full Name
     # @abstract
     # @since 0.6.0
-    # @attr [Types] attribute_name a full description of the attribute
-    # @attr_reader [Types] name description of a readonly attribute
-    # @attr_writer [Types] name description of writeonly attribute
     # @deprecated Describe the reason or provide alt. references here
+    #
+    # # Attributes can be documented directly like this
+    # attr_reader :hello
+    #
+    # If you generate attributes via meta programming, use
+    # @!attribute [r | w | rw] attribute_name
+
+See https://www.rubydoc.info/gems/yard/file/docs/Tags.md#attribute for more information on documenting attributes.
 
 ### Exceptions
 
