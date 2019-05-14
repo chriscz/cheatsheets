@@ -54,7 +54,7 @@ To link another "object" (class, method, module, etc.), use the format:
 ### Examples
 
     # @example Reverse a string
-    #   "mystring.reverse" #=> "gnirtsym"
+    #   "mystring".reverse #=> "gnirtsym"
     #
     # @example Parse a glob of files
     #   YARD.parse('lib/**/*.rb')
