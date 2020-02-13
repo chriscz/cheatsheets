@@ -52,6 +52,18 @@ To link another "object" (class, method, module, etc.), use the format:
     # Default options are:
     #   :format => :dot
     
+### Variable number of Method Parameters
+
+    # As these are really accessed via an array in the method, use the same
+    # syntax as for arrays
+    #
+    # @param obj [Object] The object for which interface must be checked
+    # @param method_symbols [Array<Symbol>] Variable number of method names that must exist
+    #        for the object to pass the interface.             
+    # def check_interface!(obj, *method_symbols)
+    # ...
+    # end
+    
 ### Examples
 
     # @example Reverse a string
