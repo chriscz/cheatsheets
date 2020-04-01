@@ -13,10 +13,11 @@ want to document using YARD.
 
 To link another "object" (class, method, module, etc.), use the format:
 
-    {ObjectName#method OPTIONAL_TITLE}
-    {Class::CONSTANT My constant's title}
-    {#method_inside_current_namespace}
-
+```ruby
+{ObjectName#method OPTIONAL_TITLE}
+{Class::CONSTANT My constant's title}
+{#method_inside_current_namespace}
+```
 ## Methods
 
     # An alias to {Parser::SourceParser}'s parsing method
