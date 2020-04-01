@@ -14,9 +14,9 @@ want to document using YARD.
 To link another "object" (class, method, module, etc.), use the format:
 
 ```ruby
-{ObjectName#method OPTIONAL_TITLE}
-{Class::CONSTANT My constant's title}
-{#method_inside_current_namespace}
+# {ObjectName#method OPTIONAL_TITLE}
+# {Class::CONSTANT My constant's title}
+# {#method_inside_current_namespace}
 ```
 ## Methods
 
