@@ -123,23 +123,15 @@ See https://www.rubydoc.info/gems/yard/file/docs/Tags.md#attribute for more info
     # @yieldparam [optional, types, ...] argname description
     # @yieldreturn [optional, types, ...] description
 
-## Linking Objects {...}
+## Linking to Objects
 
-To link another "object" (class, method, module, etc.), use the format:
+To link to another "object" (class, method, module, etc.), use the format:
 
 ```ruby
-# {ObjectName#method OPTIONAL_TITLE}
-#
-# {Class::CONSTANT My constant's title}
-#
-# {#method_inside_current_namespace}
-#
-# (see CLASS_NAME)  
-#
-```
-## Linking To Objects
-```
-
+# It's worth looking at the {Parser#parse parse method} as well as the constant
+# {Parser::TOKEN_SPACE} to understand how things are split up. In this class, you 
+# may also find {#explain} interesting, as it explains the generated AST.
+# You may also like to (see Interpreter) to understand how this language works.
 ```
 
 ## Rendering Objects
@@ -147,15 +139,17 @@ This is more useful in an index page or tutorial than it is elsewhere
 ```
 # The Movie class uses a simple decoder as can be seen below.
 # {render:Movie#decode}
-
-
+#
+# The encoder is also pretty neat
+# {render:Movie#encoder}
 ```
 
 ## Multiple types
 Multiple types are comma-seperated
 ```
 # @return [Movie, Book]
-def movies_and_books   
+def movies_and_books
+  [Movie.new("300", "Zack Snyder"), Book.new("The Andromeda Strain", "Michael Crichton")]
 end
 
 ```
