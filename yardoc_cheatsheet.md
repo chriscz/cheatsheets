@@ -1,7 +1,10 @@
-# Improved YARD CHEATSHEET http://yardoc.org
+# [Improved YARD CHEATSHEET](http://yardoc.org)
 
-forked from https://gist.github.com/chetan/1827484 which is from early 2012 and contains outdated information.
+**Forks**
+- Originally forked from [here](https://gist.github.com/chetan/1827484) last update around 2012.
+- [Forked from here](https://gist.github.com/phansch/db18a595d2f5f1ef16646af72fe1fb0e)
 
+**Web Resources**
 * [Official Getting Started Guide](http://www.rubydoc.info/gems/yard/file/docs/GettingStarted.md)
 * [Official Tags documentation](http://www.rubydoc.info/gems/yard/file/docs/Tags.md#Tag_List)
 * [Type naming examples](https://yardoc.org/types)
@@ -9,15 +12,7 @@ forked from https://gist.github.com/chetan/1827484 which is from early 2012 and 
 Templates to remind you of the options and formatting for the different types of objects you might
 want to document using YARD.
 
-## Linking Objects {...}
 
-To link another "object" (class, method, module, etc.), use the format:
-
-```ruby
-# {ObjectName#method OPTIONAL_TITLE}
-# {Class::CONSTANT My constant's title}
-# {#method_inside_current_namespace}
-```
 ## Methods
 
     # An alias to {Parser::SourceParser}'s parsing method
@@ -127,3 +122,52 @@ See https://www.rubydoc.info/gems/yard/file/docs/Tags.md#attribute for more info
     #
     # @yieldparam [optional, types, ...] argname description
     # @yieldreturn [optional, types, ...] description
+
+## Linking Objects {...}
+
+To link another "object" (class, method, module, etc.), use the format:
+
+```ruby
+# {ObjectName#method OPTIONAL_TITLE}
+#
+# {Class::CONSTANT My constant's title}
+#
+# {#method_inside_current_namespace}
+#
+# (see CLASS_NAME)  
+#
+```
+## Linking To Objects
+```
+
+```
+
+## Rendering Objects
+This is more useful in an index page or tutorial than it is elsewhere
+```
+# The Movie class uses a simple decoder as can be seen below.
+# {render:Movie#decode}
+
+
+```
+
+## Multiple types
+Multiple types are comma-seperated
+```
+# @return [Movie, Book]
+def movies_and_books   
+end
+
+```
+
+## Specifying Multiple Methods in Duck-Type
+Specifying single duck-types is simple (see below) but specifying multiple methods
+is not yet idiomatically possible in YARD, but can be implemented [according to the author](https://stackoverflow.com/questions/9126802/document-duck-types-with-multiple-methods-in-yard). Instead
+it's recommended that you specify a new type containing all your methods, even if you do not use it in the code.
+```
+# Parse the document from a string or an object that responds to +read+
+# @param stream_or_string [String, #read]
+def parse(stream_or_string)
+...
+end
+```
