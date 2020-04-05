@@ -68,6 +68,27 @@ want to document using YARD.
     # def check_interface!(obj, *method_symbols)
     # ...
     # end
+### Multiple types
+Multiple types are comma-seperated
+```
+# @return [Movie, Book]
+def movies_and_books
+  [Movie.new("300", "Zack Snyder"), Book.new("The Andromeda Strain", "Michael Crichton")]
+end
+
+```
+
+### Multiple Methods in Duck-Type
+Specifying single duck-types is simple (see below) but specifying multiple methods
+is not yet idiomatically possible in YARD, but can be implemented [according to the author](https://stackoverflow.com/questions/9126802/document-duck-types-with-multiple-methods-in-yard). Instead
+it's recommended that you specify a new type containing all your methods, even if you do not use it in the code.
+```
+# Parse the document from a string or an object that responds to +read+
+# @param stream_or_string [String, #read]
+def parse(stream_or_string)
+...
+end
+```
     
 ### Examples
 
@@ -76,6 +97,7 @@ want to document using YARD.
     #
     # @example Parse a glob of files
     #   YARD.parse('lib/**/*.rb')
+
 ## Modules
 
     # Namespace for classes and modules that handle serving documentation over HTTP
@@ -132,7 +154,8 @@ See https://www.rubydoc.info/gems/yard/file/docs/Tags.md#attribute for more info
     # @yieldparam [optional, types, ...] argname description
     # @yieldreturn [optional, types, ...] description
 
-## Linking to Objects
+## Miscellaneous
+### Linking to Objects
 
 To link to another "object" (class, method, module, etc.), use the format:
 
@@ -143,7 +166,7 @@ To link to another "object" (class, method, module, etc.), use the format:
 # You may also like to (see Interpreter) to understand how this language works.
 ```
 
-## Rendering Objects
+### Rendering Objects
 This is more useful in an index page or tutorial than it is elsewhere
 ```
 # The Movie class uses a simple decoder as can be seen below.
@@ -151,26 +174,4 @@ This is more useful in an index page or tutorial than it is elsewhere
 #
 # The encoder is also pretty neat
 # {render:Movie#encoder}
-```
-
-## Multiple types
-Multiple types are comma-seperated
-```
-# @return [Movie, Book]
-def movies_and_books
-  [Movie.new("300", "Zack Snyder"), Book.new("The Andromeda Strain", "Michael Crichton")]
-end
-
-```
-
-## Specifying Multiple Methods in Duck-Type
-Specifying single duck-types is simple (see below) but specifying multiple methods
-is not yet idiomatically possible in YARD, but can be implemented [according to the author](https://stackoverflow.com/questions/9126802/document-duck-types-with-multiple-methods-in-yard). Instead
-it's recommended that you specify a new type containing all your methods, even if you do not use it in the code.
-```
-# Parse the document from a string or an object that responds to +read+
-# @param stream_or_string [String, #read]
-def parse(stream_or_string)
-...
-end
 ```
