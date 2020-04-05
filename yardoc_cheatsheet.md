@@ -13,11 +13,14 @@ Templates to remind you of the options and formatting for the different types of
 want to document using YARD.
 
 ## Types
-- `[Foo, Bar]` Foo or Bar
-- `Array<String>` Array of string
-- `Array(String, Integer)` Array of length 2: String followed by Integer
-- `Hash{KeyType => Book,Movie,Series<Thriller>}` A Hash with keys of type `KeyType` and values of either `Book`, `Movie`, or a `Series` of `Thriller`.
-- `#foo` an object that responds to foo
+
+|Type|Description|
+|----|-----------|
+|`[Foo, Bar]`                                    | Foo or Bar
+|`Array<String>`                                 | Array of string
+|`Array(String, Integer)`                        | Array of length 2: String followed by Integer
+| `Hash{KeyType => Book,Movie,Series<Thriller>}` | A Hash with keys of type `KeyType` and values of either `Book`, `Movie`, or a `Series` of `Thriller`.
+| `#foo`                                         | an object that responds to `foo`
 
 ## Methods
 
