@@ -113,14 +113,29 @@ end
     # @since 0.6.0
     # @deprecated Describe the reason or provide alt. references here
     #
-    # # Attributes can be documented directly like this
-    # @return [String] 
-    attr_reader :hello
     #
     # If you generate attributes via meta programming, use
     # @!attribute [r | w | rw] attribute_name
 
 See https://www.rubydoc.info/gems/yard/file/docs/Tags.md#attribute for more information on documenting attributes.
+
+### Attributes
+    # Attributes can be documented directly like this
+    # @return [String] 
+    attr_reader :hello
+    # **NOTE** the reader attribute should always carry the doc for its writer as well,
+    # for this we must use the overload notation
+
+    # @overload foo
+    #   Returns the value @foo
+    #   @return Foo
+    # @overload foo=(value)
+    #   @param value [Foo]
+    #   @note Something interesting about the behaviour of setting foo
+    attr_reader :foo
+
+    # ignored by yard
+    attr_writer :foo
 
 ### Exceptions
 
