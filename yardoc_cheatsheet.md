@@ -114,7 +114,8 @@ end
     # @deprecated Describe the reason or provide alt. references here
     #
     # # Attributes can be documented directly like this
-    # attr_reader :hello
+    # @return [String] 
+    attr_reader :hello
     #
     # If you generate attributes via meta programming, use
     # @!attribute [r | w | rw] attribute_name
