@@ -56,7 +56,18 @@ want to document using YARD.
     # The options parsed out of the commandline.
     # Default options are:
     #   :format => :dot
-    
+      
+### Method Keyword paramters
+From the documentation: 
+> For keyword parameters, use @param, not @option.
+
+```
+# @param name [String] The name of the person to sing for
+def sing_for(name:)
+  # ...
+end
+```
+
 ### Variable number of Method Parameters
 
     # As these are really accessed via an array in the method, use the same
