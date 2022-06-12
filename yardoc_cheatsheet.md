@@ -1,10 +1,12 @@
 # [Improved YARD CHEATSHEET](http://yardoc.org)
 
 **Forks**
+
 - Originally forked from [here](https://gist.github.com/chetan/1827484) last update around 2012.
 - [Forked from here](https://gist.github.com/phansch/db18a595d2f5f1ef16646af72fe1fb0e)
 
 **Web Resources**
+
 * [Official Getting Started Guide](http://www.rubydoc.info/gems/yard/file/docs/GettingStarted.md)
 * [Official Tags documentation](http://www.rubydoc.info/gems/yard/file/docs/Tags.md#Tag_List)
 * [Type naming examples](https://yardoc.org/types)
@@ -21,6 +23,58 @@ want to document using YARD.
 |`Array(String, Integer)`                        | Array of length 2: String followed by Integer
 | `Hash{KeyType => Book,Movie,Series<Thriller>}` | A Hash with keys of type `KeyType` and values of either `Book`, `Movie`, or a `Series` of `Thriller`.
 | `#foo`                                         | an object that responds to `foo`
+
+## Grammar
+
+### Method Parameters
+```
+@param OPTIONAL_NAME [TYPE] DESCRIPTION TEXT HERE
+```
+
+### Options hashes
+```
+@option OPTIONS_HASH_NAME [TYPE] KEY_SYMBOL (DEFAULT) DESCRIPTION TEXT HERE
+```
+
+### References
+```
+# Inline reference link
+{SomeClass#method}
+
+# Attribute-based reference
+@see SomeClass#method
+
+# Inline typewriter param reference
++my_parameter+
+
+```
+
+### API Modifiers
+```
+@private
+
+@abstract
+
+@deprecated Use {#my_new_method} instead
+  continued...
+
+@since VERSION
+```
+
+### Blocks
+```
+@yield [VAR_FOO, VAR_BAR, VAR_C] Description of block
+
+@yieldparam argname [TYPE, TYPE, ...] description
+
+@yieldreturn [TYPE, TYPE, ...] description
+```
+
+### Meta Programming 
+```
+@!attribute [r | w | rw] attribute_name
+
+```
 
 ## Methods
 
