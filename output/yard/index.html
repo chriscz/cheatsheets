@@ -1,0 +1,220 @@
+<h1 id="improved-yard-cheatsheet"><a href="http://yardoc.org">Improved YARD CHEATSHEET</a></h1>
+<p><strong>Forks</strong></p>
+<ul>
+<li>Originally forked from <a href="https://gist.github.com/chetan/1827484">here</a> last update around 2012.</li>
+<li><a href="https://gist.github.com/phansch/db18a595d2f5f1ef16646af72fe1fb0e">Forked from here</a></li>
+</ul>
+<p><strong>Web Resources</strong></p>
+<ul>
+<li><a href="http://www.rubydoc.info/gems/yard/file/docs/GettingStarted.md">Official Getting Started Guide</a></li>
+<li><a href="http://www.rubydoc.info/gems/yard/file/docs/Tags.md#Tag_List">Official Tags documentation</a></li>
+<li><a href="https://yardoc.org/types">Type naming examples</a></li>
+</ul>
+<p>Templates to remind you of the options and formatting for the different types of objects you might want to document using YARD.</p>
+<h2 id="types">Types</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>[Foo, Bar]</code></td>
+<td>Foo or Bar</td>
+</tr>
+<tr class="even">
+<td><code>Array&lt;String&gt;</code></td>
+<td>Array of string</td>
+</tr>
+<tr class="odd">
+<td><code>Array(String, Integer)</code></td>
+<td>Array of length 2: String followed by Integer</td>
+</tr>
+<tr class="even">
+<td><code>Hash{KeyType =&gt; Book,Movie,Series&lt;Thriller&gt;}</code></td>
+<td>A Hash with keys of type <code>KeyType</code> and values of either <code>Book</code>, <code>Movie</code>, or a <code>Series</code> of <code>Thriller</code>.</td>
+</tr>
+<tr class="odd">
+<td><code>#foo</code></td>
+<td>an object that responds to <code>foo</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="grammar">Grammar</h2>
+<h3 id="method-parameters">Method Parameters</h3>
+<pre><code>@param OPTIONAL_NAME [TYPE] DESCRIPTION TEXT HERE</code></pre>
+<h3 id="options-hashes">Options hashes</h3>
+<pre><code>@option OPTIONS_HASH_NAME [TYPE] KEY_SYMBOL (DEFAULT) DESCRIPTION TEXT HERE</code></pre>
+<h3 id="references">References</h3>
+<pre><code># Inline reference link
+{SomeClass#method}
+
+# Attribute-based reference
+@see SomeClass#method
+
+# Inline typewriter param reference
++my_parameter+
+</code></pre>
+<h3 id="api-modifiers">API Modifiers</h3>
+<pre><code>@private
+
+@abstract
+
+@deprecated Use {#my_new_method} instead
+  continued...
+
+@since VERSION</code></pre>
+<h3 id="blocks">Blocks</h3>
+<pre><code>@yield [VAR_FOO, VAR_BAR, VAR_C] Description of block
+
+@yieldparam argname [TYPE, TYPE, ...] description
+
+@yieldreturn [TYPE, TYPE, ...] description</code></pre>
+<h3 id="meta-programming">Meta Programming</h3>
+<pre><code>@!attribute [r | w | rw] attribute_name
+</code></pre>
+<h2 id="methods">Methods</h2>
+<pre><code>An alias to {Parser::SourceParser}&#39;s parsing method
+
+@author Donovan Bray
+
+@see http://example.com Description of URL
+@see SomeOtherClass#method
+
+@deprecated Use {#my_new_method} instead of this method because
+  it uses a library that is no longer supported in Ruby 1.9. 
+  The new method accepts the same parameters.
+
+@abstract
+@private</code></pre>
+<h3 id="method-parameters-1">Method parameters</h3>
+<pre><code>@param [Hash] opts the options to create a message with.
+@option opts [String] :subject The subject
+@option opts [String] :from (&#39;nobody&#39;) From address
+@option opts [String] :to Recipient email
+@option opts [String] :body (&#39;&#39;) The email&#39;s body 
+
+@param (see User#initialize)
+@param [OptionParser] opts the option parser object
+@param [Array&lt;String&gt;] args the arguments passed from input. This
+  array will be modified.
+@param [Array&lt;String, Symbol&gt;] list the list of strings and symbols.
+@param [Hash&lt;Symbol, String&gt;] a hash with symbol keys and string values
+
+The options parsed out of the commandline.
+Default options are:
+  :format =&gt; :dot</code></pre>
+<h3 id="method-keyword-paramters">Method Keyword paramters</h3>
+<p>From the documentation:</p>
+<blockquote>
+<p>For keyword parameters, use @param, not @option.</p>
+</blockquote>
+<pre><code># @param name [String] The name of the person to sing for
+def sing_for(name:)
+  # ...
+end</code></pre>
+<h3 id="variable-number-of-method-parameters">Variable number of Method Parameters</h3>
+<pre><code>As these are really accessed via an array in the method, use the same
+syntax as for arrays
+
+@param obj [Object] The object for which interface must be checked
+@param method_symbols [Array&lt;Symbol&gt;] Variable number of method names that must exist
+       for the object to pass the interface.             
+def check_interface!(obj, *method_symbols)
+...
+end</code></pre>
+<h3 id="multiple-types">Multiple types</h3>
+<p>Multiple types are comma-seperated:</p>
+<pre><code># @return [Movie, Book]
+def movies_and_books
+  [Movie.new(&quot;300&quot;, &quot;Zack Snyder&quot;), Book.new(&quot;The Andromeda Strain&quot;, &quot;Michael Crichton&quot;)]
+end</code></pre>
+<h3 id="multiple-methods-in-duck-type">Multiple Methods in Duck-Type</h3>
+<p>Specifying single duck-types is simple (see below) but specifying multiple methods is not yet idiomatically possible in YARD, but can be implemented <a href="https://stackoverflow.com/questions/9126802/document-duck-types-with-multiple-methods-in-yard">according to the author</a>. Instead it's recommended that you specify a new type containing all your methods, even if you do not use it in the code.</p>
+<pre><code># Parse the document from a string or an object that responds to +read+
+# @param stream_or_string [String, #read]
+def parse(stream_or_string)
+...
+end</code></pre>
+<h3 id="examples">Examples</h3>
+<pre><code>@example Reverse a string
+  &quot;mystring&quot;.reverse #=&gt; &quot;gnirtsym&quot;
+
+@example Parse a glob of files
+  YARD.parse(&#39;lib/**/*.rb&#39;)</code></pre>
+<h2 id="modules">Modules</h2>
+<pre><code>Namespace for classes and modules that handle serving documentation over HTTP
+@since 0.6.0</code></pre>
+<h2 id="classes">Classes</h2>
+<pre><code>Abstract base class for CLI utilities. Provides some helper methods for
+the option parser
+
+@author Full Name
+@abstract
+@since 0.6.0
+@deprecated Describe the reason or provide alt. references here
+
+
+If you generate attributes via meta programming, use
+@!attribute [r | w | rw] attribute_name</code></pre>
+<p>See <a href="https://www.rubydoc.info/gems/yard/file/docs/Tags.md#attribute">https://www.rubydoc.info/gems/yard/file/docs/Tags.md#attribute</a> for more information on documenting attributes.</p>
+<h3 id="attributes">Attributes</h3>
+<pre><code># Attributes can be documented directly like this
+# @return [String] 
+attr_reader :hello
+
+# **NOTE** the reader attribute should always carry the doc for its writer as well,
+# for this we must use the overload notation
+#
+# @overload foo
+#   Returns the value @foo
+#   @return Foo
+#
+# @overload foo=(value)
+#   @param value [Foo]
+#   @note Something interesting about the behaviour of setting foo
+attr_reader :foo
+
+# ignored by yard
+attr_writer :foo</code></pre>
+<h3 id="exceptions">Exceptions</h3>
+<pre><code>@raise [ExceptionClass] description</code></pre>
+<h3 id="return-values">Return values</h3>
+<pre><code>@return [optional, types, ...] description
+@return [true] always returns true
+@return [void]
+@return [String, nil] the contents of our object or nil
+  if the object has not been filled with data.
+
+We don&#39;t care about the &quot;type&quot; here:
+@return the object
+
+@return [String, #read] a string or object that responds to #read
+@return description here with no types</code></pre>
+<h2 id="anywhere">Anywhere</h2>
+<pre><code>@todo Add support for Jabberwocky service
+  There is an open source Jabberwocky library available 
+  at http://somesite.com that can be integrated easily
+  into the project.</code></pre>
+<h2 id="blocks-1">Blocks</h2>
+<pre><code>for block {|a, b, c| ... }
+@yield [a, b, c] Description of block
+
+@yieldparam [optional, types, ...] argname description
+@yieldreturn [optional, types, ...] description</code></pre>
+<h2 id="miscellaneous">Miscellaneous</h2>
+<h3 id="linking-to-objects">Linking to Objects</h3>
+<p>To link to another "object" (class, method, module, etc.), use the format:</p>
+<pre><code>It&#39;s worth looking at the {Parser#parse parse method} as well as the constant
+{Parser::TOKEN_SPACE} to understand how things are split up. In this class, you 
+may also find {#explain} interesting, as it explains the generated AST.
+You may also like to (see Interpreter) to understand how this language works.</code></pre>
+<h3 id="rendering-objects">Rendering Objects</h3>
+<p>This is more useful in an index page or tutorial than it is elsewhere</p>
+<pre><code>The Movie class uses a simple decoder as can be seen below.
+{render:Movie#decode}
+
+The encoder is also pretty neat
+{render:Movie#encoder}</code></pre>

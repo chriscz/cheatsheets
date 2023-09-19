@@ -14,4 +14,6 @@ $(OUTPUT_DIR):
 	mkdir -p "$@"
 
 $(OUTPUT_DIR)/index.%: $(OUTPUT_DIR) index.md
-	pandoc index.md -f gfm -o "$@"
+	pandoc index.md -f gfm  --pdf-engine=weasyprint --css=print.css -o "$@"
+	
+
