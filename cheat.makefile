@@ -8,12 +8,20 @@ TYPES=pdf html
 
 TARGETS=$(addprefix $(OUTPUT_DIR)/index.,$(TYPES))
 
+# Specifying a non-existent print.css seems to make the rendering work better as links are actually blue...
+ifneq ($(wildcard print.css),)
+	# Exists
+	PDF_OPTIONS=--css=print.css
+else 
+	# Does not exist
+	PDF_OPTIONS=--css=print.css
+endif
+
 build: $(TARGETS)
 
 $(OUTPUT_DIR):
 	mkdir -p "$@"
 
 $(OUTPUT_DIR)/index.%: $(OUTPUT_DIR) index.md
-	pandoc index.md -f gfm  --pdf-engine=weasyprint --css=print.css -o "$@"
-	
+	pandoc index.md -f gfm  --pdf-engine=weasyprint $(PDF_OPTIONS) -o "$@"
 

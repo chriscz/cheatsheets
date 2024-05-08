@@ -289,3 +289,27 @@ The Movie class uses a simple decoder as can be seen below.
 The encoder is also pretty neat
 {render:Movie#encoder}
 ```
+
+## Other Tags
+### API visibility
+
+According to the Yard documentation
+
+> This tag is transitive. If it is applied on a namespace (module or class), it will immediately be applied to all children objects of that namespace unless it is redefined on the child object.
+
+```
+# @api This tells a story of the API
+def my_method
+  # ...
+end
+```
+
+Below usage is a special case to mark this API method as being part of the private API. It will be registered in the documentation.
+
+```
+@api private
+def my_private_method
+  # ...
+end
+```
+

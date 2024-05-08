@@ -218,3 +218,18 @@ You may also like to (see Interpreter) to understand how this language works.</c
 
 The encoder is also pretty neat
 {render:Movie#encoder}</code></pre>
+<h2 id="other-tags">Other Tags</h2>
+<h3 id="api-visibility">API visibility</h3>
+<p>According to the Yard documentation</p>
+<blockquote>
+<p>This tag is transitive. If it is applied on a namespace (module or class), it will immediately be applied to all children objects of that namespace unless it is redefined on the child object.</p>
+</blockquote>
+<pre><code># @api This tells a story of the API
+def my_method
+  # ...
+end</code></pre>
+<p>Below usage is a special case to mark this API method as being part of the private API. It will be registered in the documentation.</p>
+<pre><code>@api private
+def my_private_method
+  # ...
+end</code></pre>
